@@ -26,13 +26,15 @@
 
 from django.conf import settings
 
+# Set the Tag model that should be used.
+TAGGIT_AUTOCOMPLETE_TAG_MODEL = getattr(settings, 'TAGGIT_AUTOCOMPLETE_TAG_MODEL', 'taggit.Tag')
 
-# Override TAGGING_AUTOCOMPLETE_JS_ROOT in settings.py
-DEFAULT_TAGGING_AUTOCOMPLETE_JS_BASE_URL = '%s/js' % settings.STATIC_URL.rstrip('/')
-TAGGING_AUTOCOMPLETE_JS_BASE_URL = getattr(settings, 'TAGGING_AUTOCOMPLETE_JS_BASE_URL', DEFAULT_TAGGING_AUTOCOMPLETE_JS_BASE_URL)
+# Override TAGGIT_AUTOCOMPLETE_JS_ROOT in settings.py
+DEFAULT_TAGGIT_AUTOCOMPLETE_JS_BASE_URL = '%s/js' % settings.STATIC_URL.rstrip('/')
+TAGGIT_AUTOCOMPLETE_JS_BASE_URL = getattr(settings, 'TAGGIT_AUTOCOMPLETE_JS_BASE_URL', DEFAULT_TAGGIT_AUTOCOMPLETE_JS_BASE_URL)
 
-# Override TAGGING_AUTOCOMPLETE_CSS_ROOT in settings.py
-DEFAULT_TAGGING_AUTOCOMPLETE_CSS_BASE_URL = '%s/css' % settings.STATIC_URL.rstrip('/')
-TAGGING_AUTOCOMPLETE_CSS_BASE_URL = getattr(settings, 'TAGGING_AUTOCOMPLETE_CSS_BASE_URL', DEFAULT_TAGGING_AUTOCOMPLETE_CSS_BASE_URL)
+# Override TAGGIT_AUTOCOMPLETE_CSS_ROOT in settings.py
+DEFAULT_TAGGIT_AUTOCOMPLETE_CSS_BASE_URL = '%s/css' % settings.STATIC_URL.rstrip('/')
+TAGGIT_AUTOCOMPLETE_CSS_BASE_URL = getattr(settings, 'TAGGIT_AUTOCOMPLETE_CSS_BASE_URL', DEFAULT_TAGGIT_AUTOCOMPLETE_CSS_BASE_URL)
 
 # TODO: Add a setting for the autocomplete options: http://docs.jquery.com/Plugins/Autocomplete/autocomplete#url_or_dataoptions
