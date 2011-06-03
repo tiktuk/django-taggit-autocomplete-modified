@@ -30,11 +30,11 @@ from django.conf import settings
 TAGGIT_AUTOCOMPLETE_TAG_MODEL = getattr(settings, 'TAGGIT_AUTOCOMPLETE_TAG_MODEL', 'taggit.Tag')
 
 # Override TAGGIT_AUTOCOMPLETE_JS_ROOT in settings.py
-DEFAULT_TAGGIT_AUTOCOMPLETE_JS_BASE_URL = '%s/js' % settings.STATIC_URL.rstrip('/')
+DEFAULT_TAGGIT_AUTOCOMPLETE_JS_BASE_URL = '%s/taggit_autocomplete_modified' % settings.STATIC_URL.rstrip('/')
 TAGGIT_AUTOCOMPLETE_JS_BASE_URL = getattr(settings, 'TAGGIT_AUTOCOMPLETE_JS_BASE_URL', DEFAULT_TAGGIT_AUTOCOMPLETE_JS_BASE_URL)
 
 # Override TAGGIT_AUTOCOMPLETE_CSS_ROOT in settings.py
-DEFAULT_TAGGIT_AUTOCOMPLETE_CSS_BASE_URL = '%s/css' % settings.STATIC_URL.rstrip('/')
+DEFAULT_TAGGIT_AUTOCOMPLETE_CSS_BASE_URL = '%s/taggit_autocomplete_modified' % settings.STATIC_URL.rstrip('/')
 TAGGIT_AUTOCOMPLETE_CSS_BASE_URL = getattr(settings, 'TAGGIT_AUTOCOMPLETE_CSS_BASE_URL', DEFAULT_TAGGIT_AUTOCOMPLETE_CSS_BASE_URL)
 
 # TODO: Add a setting for the autocomplete options: http://docs.jquery.com/Plugins/Autocomplete/autocomplete#url_or_dataoptions
