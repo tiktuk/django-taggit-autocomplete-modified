@@ -3,7 +3,8 @@
 #
 #  This file is part of django-taggit-autocomplete-modified.
 #
-#  DESCRIPTION_DESCRIPTION_DESCRIPTION
+#  django-taggit-autocomplete-modified provides autocomplete functionality
+#  to the tags form field of django-taggit.
 #
 #  Development Web Site:
 #    - http://www.codetrax.org/projects/django-taggit-autocomplete-modified
@@ -66,7 +67,7 @@ if __name__=='__main__':
         maintainer = 'George Notaras',
         maintainer_email = 'gnot [at] g-loaded.eu',
         url = 'http://www.codetrax.org/projects/django-taggit-autocomplete-modified',
-        description = 'DESCRIPTION_DESCRIPTION_DESCRIPTION',
+        description = 'django-taggit-autocomplete-modified provides autocomplete functionality to the tags form field of django-taggit.',
         long_description = read('README'),
         download_url = 'https://source.codetrax.org/hgroot/django-taggit-autocomplete-modified',
         platforms=['any'],

@@ -17,7 +17,8 @@ Welcome to the *django-taggit-autocomplete-modified*'s documentation!
 About this project
 ==================
 
-DESCRIPTION_DESCRIPTION_DESCRIPTION
+django-taggit-autocomplete-modified provides autocomplete functionality to the
+tags form field of django-taggit.
 
 | **Author**: `George Notaras <http://www.g-loaded.eu/>`_
 | **Development Web Site**: `django-taggit-autocomplete-modified project <http://www.codetrax.org/projects/django-taggit-autocomplete-modified>`_

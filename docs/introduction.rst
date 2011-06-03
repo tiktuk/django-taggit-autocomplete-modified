@@ -6,7 +6,8 @@ Introduction
 This section contains an introduction to *django-taggit-autocomplete-modified*, including general
 information about how to submit bug reports and make feature requests.
 
-DESCRIPTION_DESCRIPTION_DESCRIPTION
+django-taggit-autocomplete-modified provides autocomplete functionality to the
+tags form field of django-taggit.
 
 *django-taggit-autocomplete-modified* is based on `django-taggit-autocomplete-modified`_.
 

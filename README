@@ -7,10 +7,15 @@ django-taggit-autocomplete-modified
 | **Documentation**: `django-taggit-autocomplete-modified documentation <http://packages.python.org/django-taggit-autocomplete-modified>`_
 | **Downloads**: `django-taggit-autocomplete-modified releases <http://pypi.python.org/pypi/django-taggit-autocomplete-modified>`_
 
-DESCRIPTION_DESCRIPTION_DESCRIPTION
+django-taggit-autocomplete-modified provides autocomplete functionality to the
+tags form field of django-taggit.
 
 Licensed under the *Apache License version 2.0*. More licensing information
 exists in the license_ section.
+
+*django-taggit-autocomplete-modified* is based on `django-taggit-autocomplete-modified`_.
+
+.. _`django-taggit-autocomplete-modified`: https://source.codetrax.org/hgroot/django-tagging-autocomplete-modified/
 
 
 Features
