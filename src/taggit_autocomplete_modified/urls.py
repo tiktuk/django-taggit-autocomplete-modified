@@ -26,7 +26,7 @@
 
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('tagging_autocomplete_modified.views',
-    url(r'^json$', 'list_tags', name='tagging_autocomplete-list'),
+urlpatterns = patterns('taggit_autocomplete_modified.views',
+    url(r'^json$', 'list_tags', name='taggit_autocomplete-list'),
 )
 
