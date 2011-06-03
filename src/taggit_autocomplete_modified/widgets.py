@@ -35,12 +35,6 @@ from taggit_autocomplete_modified import settings
 class TagAutocomplete(Input):
     input_type = 'text'
     
-    def render(self, name, value, attrs=None):
-        json_view = reverse('taggit_autocomplete-list')
-        html = super(TagAutocomplete, self).render(name, value, attrs)
-        js = u'<script type="text/javascript">jQuery().ready(function() { jQuery("#%s").autocomplete("%s", { multiple: true }); });</script>' % (attrs['id'], json_view)
-        return mark_safe("\n".join([html, js]))
-    
     class Media:
         css = {
             'all': ('%s/jquery.autocomplete.css' % settings.TAGGIT_AUTOCOMPLETE_CSS_BASE_URL,)
@@ -49,4 +43,10 @@ class TagAutocomplete(Input):
             # The jquery library should be added by your project
             '%s/jquery.autocomplete.js' % settings.TAGGIT_AUTOCOMPLETE_JS_BASE_URL,
         )
-
+    
+    def render(self, name, value, attrs=None):
+        json_view = reverse('taggit_autocomplete_modified_tag_list')
+        html = super(TagAutocomplete, self).render(name, value, attrs)
+        js = u'<script type="text/javascript">jQuery().ready(function() { jQuery("#%s").autocomplete("%s", { multiple: true }); });</script>' % (attrs['id'], json_view)
+        return mark_safe("\n".join([html, js]))
+    
