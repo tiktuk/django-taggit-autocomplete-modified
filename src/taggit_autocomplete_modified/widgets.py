@@ -24,15 +24,29 @@
 #  limitations under the License.
 #
 
-from django.conf import settings
+
+from django.forms.widgets import Input
+from django.core.urlresolvers import reverse
+from django.utils.safestring import mark_safe
+
+from tagging_autocomplete_modified import settings
 
 
-# Override TAGGING_AUTOCOMPLETE_JS_ROOT in settings.py
-DEFAULT_TAGGING_AUTOCOMPLETE_JS_BASE_URL = '%s/js' % settings.STATIC_URL.rstrip('/')
-TAGGING_AUTOCOMPLETE_JS_BASE_URL = getattr(settings, 'TAGGING_AUTOCOMPLETE_JS_BASE_URL', DEFAULT_TAGGING_AUTOCOMPLETE_JS_BASE_URL)
+class TagAutocomplete(Input):
+    input_type = 'text'
+    
+    def render(self, name, value, attrs=None):
+        json_view = reverse('tagging_autocomplete-list')
+        html = super(TagAutocomplete, self).render(name, value, attrs)
+        js = u'<script type="text/javascript">jQuery().ready(function() { jQuery("#%s").autocomplete("%s", { multiple: true }); });</script>' % (attrs['id'], json_view)
+        return mark_safe("\n".join([html, js]))
+    
+    class Media:
+        css = {
+            'all': ('%s/jquery.autocomplete.css' % settings.TAGGING_AUTOCOMPLETE_CSS_BASE_URL,)
+        }
+        js = (
+            '%s/jquery.js' % settings.TAGGING_AUTOCOMPLETE_JS_BASE_URL,
+            '%s/jquery.autocomplete.js' % settings.TAGGING_AUTOCOMPLETE_JS_BASE_URL,
+        )
 
-# Override TAGGING_AUTOCOMPLETE_CSS_ROOT in settings.py
-DEFAULT_TAGGING_AUTOCOMPLETE_CSS_BASE_URL = '%s/css' % settings.STATIC_URL.rstrip('/')
-TAGGING_AUTOCOMPLETE_CSS_BASE_URL = getattr(settings, 'TAGGING_AUTOCOMPLETE_CSS_BASE_URL', DEFAULT_TAGGING_AUTOCOMPLETE_CSS_BASE_URL)
-
-# TODO: Add a setting for the autocomplete options: http://docs.jquery.com/Plugins/Autocomplete/autocomplete#url_or_dataoptions

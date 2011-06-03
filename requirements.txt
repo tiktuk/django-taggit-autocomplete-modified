@@ -1,3 +1,4 @@
 django-taggit-autocomplete-modified
 Django
 Sphinx
+django-taggit

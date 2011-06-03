@@ -23,3 +23,18 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
+
+from django.db.models.loading import cache
+from django.http import HttpResponse
+from django.utils.datastructures import MultiValueDictKeyError
+
+
+def list_tags(request):
+    Tag = cache.get_model('tagging', 'Tag')
+    try:
+        tags = Tag.objects.filter(name__istartswith=request.GET['q']).values_list('name', flat=True)
+    except MultiValueDictKeyError:
+        pass
+    return HttpResponse('\n'.join(tags), mimetype='text/plain')
+
+

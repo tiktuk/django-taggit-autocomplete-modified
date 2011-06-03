@@ -24,9 +24,29 @@
 #  limitations under the License.
 #
 
-VERSION = (0, 1, 0, 'final', 0)
+# Scheme: <major>.<minor>.<maintenance>.<maturity>.<revision>
+# maturity: final/beta/alpha
+
+VERSION = (0, 1, 0, 'alpha', 1)
 
 def get_version():
-    version = '%d.%d.%d' % (VERSION[0], VERSION[1], VERSION[2])
+    version = '%s.%s' % (VERSION[0], VERSION[1])
+    if VERSION[2] is not None:
+        version = '%s.%s' % (version, VERSION[2])
+    if VERSION[3] != 'final':
+        if VERSION[4] > 0:
+            version = '%s%s%s' % (version, VERSION[3][0], VERSION[4])
+        else:
+            version = '%s%s' % (version, VERSION[3][0])
     return version
 
+__version__ = get_version()
+
+def get_status_classifier():
+    if VERSION[3] == 'final':
+        return 'Development Status :: 5 - Production/Stable'
+    elif VERSION[3] == 'beta':
+        return 'Development Status :: 4 - Beta'
+    elif VERSION[3] == 'alpha':
+        return 'Development Status :: 3 - Alpha'
+    raise NotImplementedError
