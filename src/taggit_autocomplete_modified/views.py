@@ -27,11 +27,12 @@
 from django.db.models.loading import cache
 from django.http import HttpResponse
 from django.utils.datastructures import MultiValueDictKeyError
+from django.utils import simplejson
 
 from taggit_autocomplete_modified import settings
 
 
-def list_tags(request):
+def tag_list_view(request):
     app_label, model_class = settings.TAGGIT_AUTOCOMPLETE_TAG_MODEL.split('.')
     Tag = cache.get_model(app_label, model_class)
     try:
@@ -39,4 +40,7 @@ def list_tags(request):
     except MultiValueDictKeyError:
         tags = []
     return HttpResponse('\n'.join(tags), mimetype='text/plain')
+    #return HttpResponse(simplejson.dumps(tags), mimetype='text/plain')
+    #return HttpResponse(simplejson.dumps(tags), mimetype='application/json')
+    #return HttpResponse('\n'.join(tags), mimetype='text/plain')
 
