@@ -42,6 +42,9 @@ class TaggableManagerAutocomplete(TaggableManager):
             'widget': TagAutocomplete,
         }
         defaults.update(kwargs)
-        #print dir(form_class(**defaults))
         return form_class(**defaults)
+
+
+    
+
 
