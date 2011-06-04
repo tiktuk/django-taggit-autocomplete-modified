@@ -23,7 +23,7 @@ Features
 ========
 
 - Provides autocomplete functionality for the *tags* fields in the administration
-interface.
+  interface.
 - Works out of the box. Requires minimal configuration.
 - Supports custom Tag model.
 
