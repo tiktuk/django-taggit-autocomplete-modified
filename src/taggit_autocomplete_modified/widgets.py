@@ -30,6 +30,7 @@ from django.forms.widgets import Input
 from django.core.urlresolvers import reverse
 from django.utils.safestring import mark_safe
 
+from taggit.utils import edit_string_for_tags
 from taggit_autocomplete_modified import settings
 
 
@@ -38,14 +39,18 @@ class TagAutocomplete(Input):
     
     class Media:
         css = {
-            'all': ('%s/jquery.autocomplete.css' % settings.TAGGIT_AUTOCOMPLETE_CSS_BASE_URL,)
+            'all': ('%sjquery.autocomplete.css' % settings.TAGGIT_AUTOCOMPLETE_MEDIA_URL,)
         }
         js = (
-            # The jquery library should be added by your project
-            '%s/jquery.autocomplete.js' % settings.TAGGIT_AUTOCOMPLETE_JS_BASE_URL,
+            '%sjquery.min.js' % settings.TAGGIT_AUTOCOMPLETE_MEDIA_URL,
+            '%sjquery.autocomplete.js' % settings.TAGGIT_AUTOCOMPLETE_MEDIA_URL,
         )
     
     def render(self, name, value, attrs=None):
+        if value is not None and not isinstance(value, basestring):
+            # value contains a list a TaggedItem instances
+            # Here we retrieve a comma-delimited list of tags suitable for editing by the user.
+            value = edit_string_for_tags([o.tag for o in value.select_related('tag')])
         json_view = reverse('taggit_autocomplete_modified_tag_list')
         html = super(TagAutocomplete, self).render(name, value, attrs)
         js = u'<script type="text/javascript">jQuery().ready(function() { jQuery("#%s").autocomplete("%s", { multiple: true }); });</script>' % (attrs['id'], json_view)
