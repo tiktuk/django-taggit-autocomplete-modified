@@ -9,9 +9,11 @@ information about how to submit bug reports and make feature requests.
 django-taggit-autocomplete-modified provides autocomplete functionality to the
 tags form field of django-taggit.
 
-*django-taggit-autocomplete-modified* is based on `django-taggit-autocomplete-modified`_.
+- *django-taggit-autocomplete-modified* is based on `django-taggit-autocomplete-modified`_
+- *django-taggit-autocomplete-modified* is based on `django-taggit-autocomplete`_
 
 .. _`django-taggit-autocomplete-modified`: https://source.codetrax.org/hgroot/django-tagging-autocomplete-modified/
+.. _`django-taggit-autocomplete`: https://github.com/Jaza/django-taggit-autocomplete
 
 Licensed under the *Apache License version 2.0*. More licensing information
 exists in the license_ section.
@@ -20,8 +22,10 @@ exists in the license_ section.
 Features
 ========
 
-- Feature A
-- Feature B
+- Provides autocomplete functionality for the *tags* fields in the administration
+interface.
+- Works out of the box. Requires minimal configuration.
+- Supports custom Tag model.
 
 
 Documentation
