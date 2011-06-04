@@ -35,16 +35,7 @@ from widgets import TagAutocomplete
 
 class TaggableManagerAutocomplete(TaggableManager):
     def formfield(self, form_class=TagField, **kwargs):
-        defaults = {
-            'label': _('Tags'),
-            'help_text': _('Enter a comma-delimited list of tags.'),
-            'required': not self.blank,
-            'widget': TagAutocomplete,
-        }
-        defaults.update(kwargs)
-        return form_class(**defaults)
-
-
-    
-
+        field = super(TaggableManagerAutocomplete, self).formfield(form_class, **kwargs)
+        field.widget = TagAutocomplete()
+        return field
 
