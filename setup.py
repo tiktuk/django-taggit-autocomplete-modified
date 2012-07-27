@@ -68,7 +68,7 @@ if __name__=='__main__':
         maintainer_email = 'gnot [at] g-loaded.eu',
         url = 'http://www.codetrax.org/projects/django-taggit-autocomplete-modified',
         description = 'django-taggit-autocomplete-modified provides autocomplete functionality to the tags form field of django-taggit.',
-        long_description = read('README'),
+        long_description = read('README.rst'),
         download_url = 'https://source.codetrax.org/hgroot/django-taggit-autocomplete-modified',
         platforms=['any'],
         classifiers = [
